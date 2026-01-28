@@ -1,0 +1,29 @@
+{
+  "dataset": "CEAS_08",
+  "split": {
+    "train": 0.8,
+    "test": 0.2
+  },
+  "cv": {
+    "folds": 5,
+    "target_precision": 0.9
+  },
+  "selected_model": "cnb",
+  "threshold": 5.087599636237876e-05,
+  "test_metrics": {
+    "accuracy": 0.947516281445537,
+    "precision": 0.9143634840871022,
+    "recall": 0.9995422293430991,
+    "f1": 0.9550574084199016,
+    "confusion_matrix": [
+      [
+        3053,
+        409
+      ],
+      [
+        2,
+        4367
+      ]
+    ]
+  }
+}
