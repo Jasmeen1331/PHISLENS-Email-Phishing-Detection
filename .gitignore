@@ -208,3 +208,8 @@ __marimo__/
 
 # Project generated artifacts
 backend/*.png
+
+# Keep only runtime model artifacts tracked
+backend/models/*
+!backend/models/phishlens_lr_tfidf.joblib
+!backend/models/metrics.json
