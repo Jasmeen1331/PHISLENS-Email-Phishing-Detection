@@ -31,8 +31,7 @@ def clean_text(s: str) -> str:
     if not isinstance(s, str):
         return ""
     s = s.lower()
-
-    # Cut off common legitimate-email disclaimer tails (reduces false positives)
+    # Cut off common legitimate-email disclaimer tails 
     markers = [
         "confidentiality notice",
         "this email and any attachments",
@@ -58,13 +57,8 @@ def map_label(x) -> int:
     return 0 if x in legit else 1
 
 def pick_threshold_for_precision(y_true, probs, target_precision=0.92):
-    """
-    Choose the smallest threshold that achieves target precision for class 1 (phishing).
-    This reduces false positives (legit wrongly flagged).
-    """
     prec, rec, thr = precision_recall_curve(y_true, probs)
     thr = np.append(thr, 1.0)
-
     best = 0.5
     for p, t in zip(prec, thr):
         if p >= target_precision:
@@ -116,6 +110,8 @@ def main():
     )
 
     # Logistic Regression with strong regularization balance
+
+    
     model = Pipeline([
         ("tfidf", tfidf),
         ("clf", LogisticRegression(
